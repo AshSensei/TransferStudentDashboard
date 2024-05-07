@@ -9,7 +9,7 @@ import {
 
 import LoginPage from "./routes/LoginPage"
 import LandingPage from "./routes/LandingPage"
-
+import RegisterPage from "./routes/RegisterPage"
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,6 +30,9 @@ function App() {
                     <li>
                       <Link to="/login">Login Page</Link>
                     </li>
+                    <li>
+                      <Link to="/register">Register Page</Link>
+                    </li>
                   </ul>
                 </nav>
                 <LandingPage />
@@ -37,6 +40,7 @@ function App() {
             }
           />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
         </Routes>
       </Router>
     </>

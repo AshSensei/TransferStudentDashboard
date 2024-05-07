@@ -5,6 +5,9 @@
   text-align: center;
 }
 
+body {
+  background-color: #e21818; /* Your desired background color */
+}
 .logo {
   height: 6em;
   padding: 1.5em;
