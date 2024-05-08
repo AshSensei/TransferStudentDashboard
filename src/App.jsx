@@ -22,19 +22,6 @@ function App() {
             path="/"
             element={
               <>
-                <nav>
-                  <ul>
-                    <li>
-                      <Link to="/">Landing Page</Link>
-                    </li>
-                    <li>
-                      <Link to="/login">Login Page</Link>
-                    </li>
-                    <li>
-                      <Link to="/register">Register Page</Link>
-                    </li>
-                  </ul>
-                </nav>
                 <LandingPage />
               </>
             }
