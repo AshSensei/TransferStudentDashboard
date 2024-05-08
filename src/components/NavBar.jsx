@@ -1,12 +1,21 @@
 import * as React from 'react';
 import { Box, Button, Flex, Heading, Center, Spacer, ButtonGroup, Drawer, DrawerOverlay, DrawerHeader, DrawerBody, DrawerCloseButton, DrawerFooter,DrawerContent, useDisclosure, IconButton, Card, CardHeader, CardBody, CardFooter, Text} from '@chakra-ui/react'
 import { Link as ReactRouterLink } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Link as ChakraLink } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons'
 
 export default function NavBar(){
     const { isOpen, onOpen, onClose } = useDisclosure()
         const btnRef = React.useRef()
+    const history = useNavigate()
+
+    const handleNavigation = (path) => {
+        if (history.location.pathname === path) {
+            onClose()
+        }
+    }
+    
     return(
 
             <Flex 
@@ -25,7 +34,7 @@ export default function NavBar(){
                     <Button ref={btnRef} colorScheme='teal' onClick={onOpen} as={IconButton}
                         aria-label='Options'
                         icon={<HamburgerIcon />}
-                        variant='outline'
+                        variant='ghost'   
                     >
                         Open
                     </Button>
@@ -44,13 +53,26 @@ export default function NavBar(){
                             <DrawerBody>
                                 <Card>
                                     <CardHeader>
+                                        <Heading size='md'> Home Page</Heading>
+                                    </CardHeader>
+                                    <CardBody>
+                                        <Text>View the timeline of transfer deadlines.</Text>
+                                    </CardBody>
+                                    <CardFooter>
+                                        <ChakraLink as={ReactRouterLink} to='/'  onClick={() => handleNavigation('/')}>
+                                            <Button>View Timeline</Button>
+                                        </ChakraLink>
+                                    </CardFooter>
+                                </Card>
+                                <Card>
+                                    <CardHeader>
                                         <Heading size='md'> Transfer Checklist</Heading>
                                     </CardHeader>
                                     <CardBody>
                                         <Text>View your items for staying on top of transferring.</Text>
                                     </CardBody>
                                     <CardFooter>
-                                        <ChakraLink as={ReactRouterLink} to='/checklist'>
+                                        <ChakraLink as={ReactRouterLink} to='/checklist'  onClick={() => handleNavigation('/checklist')}>
                                             <Button>View Checklist</Button>
                                         </ChakraLink>
                                     </CardFooter>
