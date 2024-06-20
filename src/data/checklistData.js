@@ -1,1 +1,1 @@
-export default [false, false, true];
+export default [false, false, false];
